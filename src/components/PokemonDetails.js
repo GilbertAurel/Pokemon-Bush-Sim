@@ -7,6 +7,7 @@ export default function PokemonDetails({ sprites, name, types, moves }) {
     <div css={styles.container}>
       <div>
         <img src={sprites.front_default} alt="" />
+        <div />
       </div>
       <div>
         <h1>{name}</h1>
@@ -27,5 +28,7 @@ export default function PokemonDetails({ sprites, name, types, moves }) {
 }
 
 const styles = {
-  container: css``,
+  container: css`
+    flex: 5;
+  `,
 };

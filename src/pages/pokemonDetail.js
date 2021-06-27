@@ -38,7 +38,7 @@ function pokemonDetail(props) {
         src={IMAGES.detailBG}
         alt="background"
       />
-      <div>
+      <div css={styles.bodyContainer}>
         <PokemonDetails
           types={types}
           sprites={sprites}
@@ -67,5 +67,11 @@ const styles = {
     right: 0;
     z-index: -1;
     object-fit: cover;
+  `,
+  bodyContainer: css`
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
   `,
 };
