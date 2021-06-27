@@ -42,19 +42,19 @@ const styles = {
     flex-direction: column;
     gap: 3px;
 
-    div:nth-child(1) {
+    div:nth-of-type(1) {
       height: 3px;
       width: 100%;
       background-color: #000;
     }
 
-    div:nth-child(2) {
+    div:nth-of-type(2) {
       height: 7px;
       width: 100%;
       background-color: #000;
     }
 
-    div:nth-child(3) {
+    div:nth-of-type(3) {
       height: 8px;
       width: 100%;
       background-color: #000;

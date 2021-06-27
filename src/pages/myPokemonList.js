@@ -6,7 +6,7 @@ function myPokemonList() {
 
   console.log(savedPokemon);
 
-  if (savedPokemon.length == 0) return <h1>list is empty</h1>;
+  if (savedPokemon.length === 0) return <h1>list is empty</h1>;
 
   return (
     <div>

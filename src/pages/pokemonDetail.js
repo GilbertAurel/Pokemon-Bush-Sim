@@ -7,7 +7,7 @@ import { css, jsx } from "@emotion/react";
 import { GET_ONE_POKEMON_QUERY } from "../constants/queries";
 import IMAGES from "../constants/images";
 import { SavedPokemonContext } from "../context/PokemonContext";
-import PokemonDetails from "../components/PokemonDetails";
+import PokemonInfo from "../components/PokemonInfo";
 import PokemonCaptureButtons from "../components/PokemonCaptureButtons";
 
 function pokemonDetail(props) {
@@ -24,7 +24,7 @@ function pokemonDetail(props) {
   const { types, sprites, moves, id } = data.pokemon;
 
   const captureButtonHandler = () => {
-    if (Math.floor(Math.random() * 2) == 1) {
+    if (Math.floor(Math.random() * 2) === 1) {
       setSavedPokemon((prevData) => [...prevData, name]);
       console.log("captured");
     }
@@ -39,7 +39,7 @@ function pokemonDetail(props) {
         alt="background"
       />
       <div css={styles.bodyContainer}>
-        <PokemonDetails
+        <PokemonInfo
           types={types}
           sprites={sprites}
           moves={moves}
