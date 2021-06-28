@@ -3,10 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { css, jsx } from "@emotion/react";
 
-import { COLORS } from "../constants/theme";
-import IMAGE from "../constants/images";
+import { COLORS } from "../../constants/theme";
+import IMAGE from "../../constants/images";
 
-export default function PokemonCaptureButtons({ captureButtonHandler }) {
+export default function pokemonCaptureButtons({ captureButtonHandler }) {
   return (
     <div css={styles.container}>
       <div css={styles.stripes}>

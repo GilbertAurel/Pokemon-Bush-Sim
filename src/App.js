@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import PokemonList from "./pages/pokemonList";
-import PokemonDetail from "./pages/pokemonDetail";
-import MyPokemonList from "./pages/myPokemonList";
+import PokemonList from "./pages/all_pokemon_list";
+import PokemonDetail from "./pages/pokemon_details";
+import MyPokemonList from "./pages/captured_pokemon";
 import { SavedPokemonProvider } from "./context/PokemonContext";
 
 const apolloClient = new ApolloClient({
@@ -16,7 +16,7 @@ function App() {
   return (
     <ApolloProvider client={apolloClient}>
       <Router>
-        <div>
+        <Fragment>
           <SavedPokemonProvider>
             <Switch>
               <Route exact path="/" component={PokemonList} />
@@ -24,7 +24,7 @@ function App() {
               <Route path="/collections" component={MyPokemonList} />
             </Switch>
           </SavedPokemonProvider>
-        </div>
+        </Fragment>
       </Router>
     </ApolloProvider>
   );
