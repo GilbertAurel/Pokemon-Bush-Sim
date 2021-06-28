@@ -1,47 +1,33 @@
 /** @jsx jsx */
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
 import { css, jsx } from "@emotion/react";
 
-import { GET_TEN_OFFSET_POKEMONS_QUERY } from "../../constants/queries";
 import { SavedPokemonContext } from "../../context/PokemonContext";
-import PokemonListCard from "../../components/pokemonListCard";
 import { COLORS } from "../../constants/theme";
 import IMAGES from "../../constants/images";
 
+import PokemonScrollList from "./pokemonScrollList";
+
 export default function pokemonList() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const { savedPokemon, setSavedPokemon } = useContext(SavedPokemonContext);
-  const itemPerPage = 10;
-
-  const { loading, error, data } = useQuery(GET_TEN_OFFSET_POKEMONS_QUERY, {
-    variables: { limit: itemPerPage, currentPage: currentPage },
-  });
-
-  if (loading) return <h1>loading..</h1>;
-  if (error) return <h1>data fetch error</h1>;
+  const { savedPokemon } = useContext(SavedPokemonContext);
 
   return (
     <div css={styles.container}>
       <div css={styles.headerContainer}>
         <div css={styles.whiteGradient} />
         <img src={IMAGES.headerBG} alt="header background" />
-        <img css={styles.logo} src={IMAGES.logo} alt="header logo" />
+        {/* <img css={styles.logo} src={IMAGES.logo} alt="header logo" /> */}
       </div>
-      <div css={styles.pokemonListContainer}>
-        {data.pokemons.results.map((pokemon) => (
-          <PokemonListCard key={pokemon.id} pokemon={pokemon} />
-        ))}
-      </div>
-      <h1>{savedPokemon.length}</h1>
+      <PokemonScrollList />
       <div>
-        <button onClick={() => setCurrentPage(data.pokemons.prevOffset)}>
+        <h1>{savedPokemon.length}</h1>
+        {/* <button onClick={() => setCurrentPage(data.pokemons.prevOffset)}>
           prev
         </button>
         <button onClick={() => setCurrentPage(data.pokemons.nextOffset)}>
           next
-        </button>
+        </button> */}
         <Link to={"/collections"}>Go to my pokemon</Link>
       </div>
     </div>
@@ -78,13 +64,5 @@ const styles = {
   `,
   logo: css`
     height: 120px;
-  `,
-  pokemonListContainer: css`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
   `,
 };

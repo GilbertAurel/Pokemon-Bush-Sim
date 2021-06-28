@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React, { Fragment } from "react";
 import { css, jsx } from "@emotion/react";
 
 import IMAGES from "../../constants/images";
@@ -8,30 +7,46 @@ import PokemonType from "../../components/pokemonType";
 import PokemonMove from "../../components/pokemonMove";
 
 export default function pokemonInfo({ sprites, name, types, moves }) {
-  return (
-    <div css={styles.container}>
+  const RenderPokemonImage = () => {
+    return (
       <div css={styles.imageContainer}>
         <img src={sprites.front_default} alt="" />
         <img src={IMAGES.shadow} alt="" />
       </div>
+    );
+  };
 
+  const RenderTypes = () => {
+    return (
       <div css={styles.attributesContainer}>
         <h1 css={styles.pokemonName}>{name}</h1>
-        <Fragment>
+        <section>
           {types.map((typeDoc, index) => (
             <PokemonType key={`type-${index}`} type={typeDoc.type} />
           ))}
-        </Fragment>
+        </section>
       </div>
+    );
+  };
 
+  const RenderMoves = () => {
+    return (
       <div css={styles.movesContainer}>
-        <h2>Moves</h2>
+        <h2>Moves:</h2>
         <section>
           {moves.slice(0, 2).map((moveDoc, index) => (
             <PokemonMove key={`move-${index}`} move={moveDoc.move} />
           ))}
         </section>
       </div>
+    );
+  };
+
+  return (
+    <div css={styles.container}>
+      <RenderPokemonImage />
+      <RenderTypes />
+      <RenderMoves />
     </div>
   );
 }
@@ -91,7 +106,9 @@ const styles = {
       font-family: "dogica";
       font-size: 12px;
       line-height: 9px;
-      color: #ffffff;
+      color: ${COLORS.primary};
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
     }
 
     section {

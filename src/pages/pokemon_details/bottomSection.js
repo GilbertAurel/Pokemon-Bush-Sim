@@ -6,27 +6,42 @@ import { css, jsx } from "@emotion/react";
 import { COLORS } from "../../constants/theme";
 import IMAGE from "../../constants/images";
 
-export default function pokemonCaptureButtons({ captureButtonHandler }) {
-  return (
-    <div css={styles.container}>
+export default function pokemonCaptureButtons({
+  captureState,
+  buttonHandler,
+  failedAttempts,
+}) {
+  const RenderStripes = () => {
+    return (
       <div css={styles.stripes}>
         <div />
         <div />
         <div />
       </div>
+    );
+  };
+
+  const RenderButtons = () => {
+    return (
       <div css={styles.innerContainer}>
         <h1 css={styles.title}>Whoa, we found it!</h1>
-        <button
-          css={styles.captureButton}
-          onClick={() => captureButtonHandler()}
-        >
+        <button css={styles.captureButton} onClick={() => buttonHandler()}>
           <img src={IMAGE.pokeball} alt="" />
-          <h1 css={styles.buttonLabel}>Capture</h1>
+          <h1 css={styles.buttonLabel}>
+            {!captureState ? "Capture" : `Try again ${failedAttempts}`}
+          </h1>
         </button>
         <Link css={styles.backButon} to={"/"}>
           <h1 css={styles.buttonLabel}>Go Back</h1>
         </Link>
       </div>
+    );
+  };
+
+  return (
+    <div css={styles.container}>
+      <RenderStripes />
+      <RenderButtons />
     </div>
   );
 }

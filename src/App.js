@@ -19,9 +19,15 @@ function App() {
         <Fragment>
           <SavedPokemonProvider>
             <Switch>
-              <Route exact path="/" component={PokemonList} />
-              <Route path="/pokemon/:name" component={PokemonDetail} />
-              <Route path="/collections" component={MyPokemonList} />
+              <Route exact path="/">
+                <PokemonList />
+              </Route>
+              <Route path="/pokemon/:name">
+                <PokemonDetail />
+              </Route>
+              <Route path="/collections">
+                <MyPokemonList />
+              </Route>
             </Switch>
           </SavedPokemonProvider>
         </Fragment>

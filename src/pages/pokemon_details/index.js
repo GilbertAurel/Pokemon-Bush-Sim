@@ -1,68 +1,81 @@
 /** @jsx jsx */
-import React, { useContext, useState } from "react";
-import { withRouter, useHistory } from "react-router-dom";
+import { useState } from "react";
+import { withRouter } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { css, jsx } from "@emotion/react";
 
 import { GET_ONE_POKEMON_QUERY } from "../../constants/queries";
 import IMAGES from "../../constants/images";
-import { SavedPokemonContext } from "../../context/PokemonContext";
 
-import PokemonInfo from "./infoSection";
-import PokemonCaptureButtons from "./bottomSection";
-import CaptureDialog from "./popupDialog";
+import LoadingPage from "../../components/loadingPage";
+import ErrorPage from "../../components/errorPage";
+import InfoSection from "./infoSection";
+import BottomSection from "./bottomSection";
+import PopupDialog from "./popupDialog";
 
 function pokemonDetail(props) {
-  const pageHistory = useHistory();
   const { name } = props.match.params;
   const [captureDialog, setCaptureDialog] = useState(false);
-  const { setSavedPokemon } = useContext(SavedPokemonContext);
+  const [failedToCapture, setFailedToCapture] = useState(false);
+  const [failedAttempts, setFailedAttempts] = useState(0);
 
   const { loading, error, data } = useQuery(GET_ONE_POKEMON_QUERY, {
     variables: { name: name },
   });
+  if (loading) return <LoadingPage />;
+  if (error) return <ErrorPage />;
 
-  if (loading) return <h1>loading..</h1>;
-  if (error) return <h1>data fetch error</h1>;
-
-  const { types, sprites, moves, id } = data.pokemon;
+  const { types, sprites, moves } = data.pokemon;
 
   const captureButtonHandler = () => {
     if (Math.floor(Math.random() * 2) === 1) {
-      return dialogState();
+      setFailedToCapture(false);
+      setFailedAttempts(0);
+      return setCaptureDialog((prevState) => !prevState);
     }
-    alert("nope");
+
+    setFailedAttempts((prevData) => prevData + 1);
+    setFailedToCapture(true);
   };
 
-  const saveToContext = () => {
-    setSavedPokemon((prevData) => [...prevData, name]);
-    pageHistory.goBack();
-  };
-
-  const dialogState = () => {
-    setCaptureDialog((prevState) => !prevState);
-  };
-
-  return (
-    <div css={styles.container}>
+  const RenderBackground = () => {
+    return types.some((typeDoc) => typeDoc.type.name === "water") ? (
+      <img css={styles.backgroundImage} src={IMAGES.waterBG} alt="background" />
+    ) : (
       <img
         css={styles.backgroundImage}
         src={IMAGES.detailBG}
         alt="background"
       />
+    );
+  };
+
+  const RenderBody = () => {
+    return (
       <div css={styles.bodyContainer}>
-        <PokemonInfo
+        <InfoSection
           types={types}
           sprites={sprites}
           moves={moves}
           name={name}
         />
-        <PokemonCaptureButtons captureButtonHandler={captureButtonHandler} />
+        <BottomSection
+          captureState={failedToCapture}
+          buttonHandler={captureButtonHandler}
+          failedAttempts={failedAttempts}
+        />
       </div>
+    );
+  };
+
+  return (
+    <div css={styles.container}>
+      <RenderBackground />
+      <RenderBody />
       {captureDialog && (
-        <CaptureDialog
-          dialogState={dialogState}
-          saveToContext={saveToContext}
+        <PopupDialog
+          dialogState={() => setCaptureDialog((prevState) => !prevState)}
+          pokemonName={name}
         />
       )}
     </div>

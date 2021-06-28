@@ -26,7 +26,6 @@ export const GET_TEN_OFFSET_POKEMONS_QUERY = gql`
     pokemons(limit: $limit, offset: $currentPage) {
       count
       results {
-        id
         name
       }
       nextOffset
