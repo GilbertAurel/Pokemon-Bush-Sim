@@ -8,9 +8,10 @@ export default function background({ types }) {
     <img
       css={css`
         height: 100%;
+        min-height: 700px;
         width: 100%;
         position: absolute;
-        top: 0;
+        top: -100px;
         left: 0;
         right: 0;
         z-index: -1;

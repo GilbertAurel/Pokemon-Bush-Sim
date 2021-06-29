@@ -10,7 +10,7 @@ import RenderDarkenBackground from "./background";
 import RenderTitle from "./title";
 
 export default function popUpDialog({ dialogState, pokemonName }) {
-  const [name, setName] = useState(null);
+  const [name, setName] = useState("");
   const [isUnique, setIsUnique] = useState(true);
   const pageHistory = useHistory();
   const { savedPokemon, setSavedPokemon } = useContext(SavedPokemonContext);
@@ -27,7 +27,7 @@ export default function popUpDialog({ dialogState, pokemonName }) {
   }, [name]);
 
   const saveHandler = () => {
-    if (!name) return alert("bad input");
+    if (!name) return setIsUnique(false);
 
     if (isUnique) {
       setSavedPokemon((prevData) => [...prevData, name]);
@@ -73,6 +73,10 @@ export default function popUpDialog({ dialogState, pokemonName }) {
             border-radius: 10px;
             font-family: "dogica";
             font-size: 12px;
+
+            :focus {
+              outline: none;
+            }
           `}
           type="text"
           value={name}

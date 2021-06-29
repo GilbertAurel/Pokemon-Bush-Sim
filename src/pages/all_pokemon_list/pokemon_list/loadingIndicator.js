@@ -19,6 +19,19 @@ export default function loadingIndicator() {
         img {
           height: 20px;
           width: 20px;
+          animation-name: spin;
+          animation-duration: 500ms;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
         }
 
         h1 {

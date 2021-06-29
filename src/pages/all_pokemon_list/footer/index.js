@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { Link } from "react-router-dom";
 import { css, jsx } from "@emotion/react";
 
 import OwnedPokemonSection from "./ownedPokemon";

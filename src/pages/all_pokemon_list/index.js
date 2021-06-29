@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { css, jsx } from "@emotion/react";
 
 import { SavedPokemonContext } from "context/PokemonContext";
 
-import PokemonScrollList from "./pokemon_list";
+import PokemonList from "./pokemon_list";
 import HeaderSection from "./header";
 import FooterSection from "./footer";
 
@@ -17,6 +16,8 @@ export default function pokemonList() {
       css={css`
         height: 100vh;
         width: 100vw;
+        min-height: 700px;
+        min-width: 400px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -24,7 +25,7 @@ export default function pokemonList() {
       `}
     >
       <HeaderSection />
-      <PokemonScrollList />
+      <PokemonList />
       <FooterSection savedPokemon={savedPokemon} />
     </div>
   );

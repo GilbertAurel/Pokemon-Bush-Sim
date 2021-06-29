@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 
-import { COLORS } from "constants/theme";
-
 export default function ownedPokemon({ savedPokemon }) {
   return (
     <div

@@ -11,7 +11,7 @@ export default function uniqueAlert({ isUnique }) {
           font-size: 12px;
         `}
       >
-        name has been taken!
+        Please use another name!
       </h1>
     )
   );

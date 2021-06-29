@@ -1,7 +1,5 @@
 /** @jsx jsx */
-import React from "react";
 import { css, jsx } from "@emotion/react";
-import { COLORS } from "../constants/theme";
 
 export default function button({ title, onPressFunction, colorInput }) {
   return (

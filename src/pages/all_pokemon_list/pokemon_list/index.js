@@ -16,7 +16,7 @@ export default function pokemonScrollList() {
   const [pokemons, setPokemons] = useState([]);
   const [firstLoad, setFirstLoad] = useState(true);
 
-  const { loading, error, data } = useQuery(GET_TEN_OFFSET_POKEMONS_QUERY, {
+  const { error, data } = useQuery(GET_TEN_OFFSET_POKEMONS_QUERY, {
     variables: { limit: ITEM_PER_PAGE, currentPage: currentPage },
   });
 

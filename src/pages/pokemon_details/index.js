@@ -68,6 +68,7 @@ function pokemonDetail(props) {
       css={css`
         height: 100vh;
         width: 100vw;
+        position: relative;
       `}
     >
       <RenderBackground types={types} />
