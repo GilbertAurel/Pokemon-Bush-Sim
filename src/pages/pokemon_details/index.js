@@ -4,14 +4,14 @@ import { withRouter } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { css, jsx } from "@emotion/react";
 
-import { GET_ONE_POKEMON_QUERY } from "../../constants/queries";
-import IMAGES from "../../constants/images";
+import { GET_ONE_POKEMON_QUERY } from "constants/queries";
 
-import LoadingPage from "../../components/loadingPage";
-import ErrorPage from "../../components/errorPage";
-import InfoSection from "./infoSection";
-import BottomSection from "./bottomSection";
-import PopupDialog from "./popupDialog";
+import LoadingPage from "components/loadingPage";
+import ErrorPage from "components/errorPage";
+import InfoSection from "./pokemon_info";
+import BottomSection from "./footer";
+import PopupDialog from "./popup";
+import RenderBackground from "./background";
 
 function pokemonDetail(props) {
   const { name } = props.match.params;
@@ -38,21 +38,16 @@ function pokemonDetail(props) {
     setFailedToCapture(true);
   };
 
-  const RenderBackground = () => {
-    return types.some((typeDoc) => typeDoc.type.name === "water") ? (
-      <img css={styles.backgroundImage} src={IMAGES.waterBG} alt="background" />
-    ) : (
-      <img
-        css={styles.backgroundImage}
-        src={IMAGES.detailBG}
-        alt="background"
-      />
-    );
-  };
-
   const RenderBody = () => {
     return (
-      <div css={styles.bodyContainer}>
+      <div
+        css={css`
+          height: 100vh;
+          width: 100vw;
+          display: flex;
+          flex-direction: column;
+        `}
+      >
         <InfoSection
           types={types}
           sprites={sprites}
@@ -69,8 +64,13 @@ function pokemonDetail(props) {
   };
 
   return (
-    <div css={styles.container}>
-      <RenderBackground />
+    <div
+      css={css`
+        height: 100vh;
+        width: 100vw;
+      `}
+    >
+      <RenderBackground types={types} />
       <RenderBody />
       {captureDialog && (
         <PopupDialog
@@ -83,26 +83,3 @@ function pokemonDetail(props) {
 }
 
 export default withRouter(pokemonDetail);
-
-const styles = {
-  container: css`
-    height: 100vh;
-    width: 100vw;
-  `,
-  backgroundImage: css`
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: -100px;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    object-fit: cover;
-  `,
-  bodyContainer: css`
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-  `,
-};

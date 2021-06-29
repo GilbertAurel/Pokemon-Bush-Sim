@@ -12,8 +12,8 @@ export default function button({ title, onPressFunction, colorInput }) {
         background-color: ${colorInput};
         border: 2px solid #000;
         border-radius: 10px;
-        font-family: "dogica";
-        font-size: 12px;
+        font-family: "whitneybold";
+        font-size: 18px;
       `}
       onClick={() => onPressFunction()}
     >
