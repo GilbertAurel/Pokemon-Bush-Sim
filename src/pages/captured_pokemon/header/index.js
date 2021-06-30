@@ -9,7 +9,7 @@ export default function headerSection() {
   return (
     <div
       css={css`
-        height: 100px;
+        height: 50px;
         min-height: 50px;
         width: 100%;
         display: flex;
@@ -20,6 +20,7 @@ export default function headerSection() {
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 
         @media (min-width: 1080px) {
+          height: 100px;
           justify-content: space-between;
         }
       `}

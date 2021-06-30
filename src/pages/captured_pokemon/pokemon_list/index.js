@@ -34,7 +34,7 @@ export default function pokemonList({ savedPokemon, releasePokemonHandler }) {
       css={css`
         flex: ${savedPokemon.length === 0 && 1};
         width: 90%;
-        margin-bottom: 80px;
+        margin-bottom: 150px;
         display: flex;
         flex-direction: row;
         justify-content: center;

@@ -6,7 +6,7 @@ export default function pokemonCard({ pokemon, releasePokemonHandler }) {
   return (
     <div
       css={css`
-        flex: 1 0 150px;
+        flex: 1 0 100px;
         max-width: 150px;
         max-height: 200px;
         padding: 20px 10px;
@@ -21,9 +21,9 @@ export default function pokemonCard({ pokemon, releasePokemonHandler }) {
         h1 {
           width: 90%;
           padding: 0;
-          margin: 0 0 10px 0;
+          margin-bottom: 10px;
           font-family: "dogica";
-          font-size: 16px;
+          font-size: 14px;
           color: ${COLORS.primary};
           overflow: hidden;
           text-align: center;
