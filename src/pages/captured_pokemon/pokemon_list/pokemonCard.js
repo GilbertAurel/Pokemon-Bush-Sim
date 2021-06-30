@@ -2,7 +2,7 @@
 import { css, jsx } from "@emotion/react";
 import { COLORS } from "constants/theme";
 
-export default function pokemonCard({ pokemon }) {
+export default function pokemonCard({ pokemon, releasePokemonHandler }) {
   return (
     <div
       css={css`
@@ -19,11 +19,14 @@ export default function pokemonCard({ pokemon }) {
         border-radius: 10px;
 
         h1 {
+          width: 90%;
           padding: 0;
           margin: 0;
           font-family: "dogica";
           font-size: 16px;
           color: ${COLORS.primary};
+          overflow: hidden;
+          text-align: center;
         }
 
         p {
@@ -33,6 +36,7 @@ export default function pokemonCard({ pokemon }) {
           font-size: 8px;
         }
       `}
+      onClick={() => releasePokemonHandler(pokemon.name)}
     >
       <img
         css={css`

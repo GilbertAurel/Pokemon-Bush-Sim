@@ -17,6 +17,10 @@ export default function typesSelection({
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media (min-width: 1080px) {
+          height: 100px;
+        }
       `}
     >
       <div
@@ -32,6 +36,10 @@ export default function typesSelection({
 
           ::-webkit-scrollbar {
             display: none;
+          }
+
+          @media (min-width: 1080px) {
+            flex-wrap: wrap;
           }
         `}
       >

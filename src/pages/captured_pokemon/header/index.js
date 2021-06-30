@@ -29,12 +29,21 @@ export default function headerSection() {
         css={css`
           display: none;
 
+          p {
+            padding: 0;
+            margin: 10px 0;
+            font-family: "whitney";
+            font-size: 16px;
+          }
+
           @media (min-width: 1080px) {
             display: flex;
+            gap: 20px;
             margin-right: 5%;
           }
         `}
       >
+        <p>tap pokemon to release</p>
         <RenderBackButton />
       </div>
     </div>

@@ -4,10 +4,14 @@ import { COLORS } from "constants/theme";
 
 import RenderPokemonCard from "./pokemonCard";
 
-export default function pokemonList({ savedPokemon }) {
+export default function pokemonList({ savedPokemon, releasePokemonHandler }) {
   const RenderList = () => {
     return savedPokemon.map((pokemon, index) => (
-      <RenderPokemonCard key={index} pokemon={pokemon} />
+      <RenderPokemonCard
+        key={index}
+        pokemon={pokemon}
+        releasePokemonHandler={releasePokemonHandler}
+      />
     ));
   };
 
@@ -28,6 +32,7 @@ export default function pokemonList({ savedPokemon }) {
   return (
     <div
       css={css`
+        flex: ${savedPokemon.length === 0 && 1};
         width: 90%;
         margin-bottom: 80px;
         display: flex;

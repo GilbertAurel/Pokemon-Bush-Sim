@@ -6,7 +6,7 @@ export default function typeCard({ name, selectedType, typeButtonHandler }) {
   return (
     <div
       css={css`
-        padding: 0 15px;
+        padding: 0 20px;
         background-color: ${name === selectedType ? COLORS.secondary : "#fff"};
         border-radius: 20px;
         border: 1px solid #dadada;

@@ -3,7 +3,7 @@ import { css, jsx } from "@emotion/react";
 
 import IMAGES from "constants/images";
 import DarkShader from "components/darkShader";
-import SearchBar from "./searchBar";
+import RenderTitleBar from "./titleBar";
 import RenderLogo from "./logo";
 
 export default function headerSection() {
@@ -26,7 +26,7 @@ export default function headerSection() {
     >
       <DarkShader />
       <RenderLogo />
-      <SearchBar />
+      <RenderTitleBar />
     </div>
   );
 }

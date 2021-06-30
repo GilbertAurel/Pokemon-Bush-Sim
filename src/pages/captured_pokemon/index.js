@@ -15,7 +15,6 @@ import RenderFooter from "./footer";
 
 export default function myPokemonList() {
   const { savedPokemon, setSavedPokemon } = useContext(SavedPokemonContext);
-  const [captureDialog, setCaptureDialog] = useState(false);
   const [selectedType, setSelectedType] = useState("all");
   const [selectedPokemon, setSelectedPokemon] = useState(savedPokemon);
 
@@ -29,13 +28,19 @@ export default function myPokemonList() {
     );
 
     setSelectedPokemon(newSelectedPokemon);
-  }, [selectedType]);
+  }, [selectedType, savedPokemon]);
 
   if (loading) return <RenderLoading />;
   if (error) return <RenderError />;
 
   const typeButtonHandler = (type) => {
     setSelectedType(type);
+  };
+
+  const releasePokemonHandler = (nameInput) => {
+    setSavedPokemon((prevData) =>
+      prevData.filter((pokemon) => pokemon.name !== nameInput)
+    );
   };
 
   return (
@@ -55,7 +60,10 @@ export default function myPokemonList() {
         selectedType={selectedType}
         typeButtonHandler={typeButtonHandler}
       />
-      <RenderPokemonList savedPokemon={selectedPokemon} />
+      <RenderPokemonList
+        savedPokemon={selectedPokemon}
+        releasePokemonHandler={releasePokemonHandler}
+      />
       <RenderFooter />
     </div>
   );
