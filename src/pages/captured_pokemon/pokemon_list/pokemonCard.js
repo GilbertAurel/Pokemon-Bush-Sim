@@ -21,7 +21,7 @@ export default function pokemonCard({ pokemon, releasePokemonHandler }) {
         h1 {
           width: 90%;
           padding: 0;
-          margin: 0;
+          margin: 0 0 10px 0;
           font-family: "dogica";
           font-size: 16px;
           color: ${COLORS.primary};

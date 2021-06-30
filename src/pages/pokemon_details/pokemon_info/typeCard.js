@@ -20,6 +20,17 @@ export default function pokemonType({ type }) {
           font-size: 12px;
           line-height: 9px;
         }
+
+        @media (max-height: 800px) {
+          width: 100px;
+          height: 15px;
+
+          h1 {
+            font-family: "dogica";
+            font-size: 10px;
+            line-height: 9px;
+          }
+        }
       `}
     >
       <h1>{type.name}</h1>

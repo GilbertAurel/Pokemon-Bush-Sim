@@ -43,6 +43,11 @@ export default function buttons({
           background: ${COLORS.primary};
           border: 3px solid #000000;
           border-radius: 9px;
+          cursor: pointer;
+
+          :hover {
+            background: #ffd32b;
+          }
 
           img {
             height: 26px;

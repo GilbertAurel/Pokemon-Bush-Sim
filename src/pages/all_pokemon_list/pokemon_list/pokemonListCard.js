@@ -17,7 +17,11 @@ export default function pokemonListCard({ pokemon }) {
         background-color: ${COLORS.primary};
         border-radius: 10px;
         text-decoration: none;
-        border: 2px solid #000;
+        border: 2px solid rgba(0, 0, 0, 0.4);
+
+        :hover {
+          border: 2px solid #000;
+        }
 
         h1 {
           text-align: center;

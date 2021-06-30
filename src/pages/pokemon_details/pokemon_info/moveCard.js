@@ -14,11 +14,22 @@ export default function pokemonMove({ move }) {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
 
         h1 {
           font-family: "dogica";
           font-size: 12px;
           line-height: 9px;
+        }
+
+        @media (max-height: 800px) {
+          height: 30px;
+
+          h1 {
+            font-family: "dogica";
+            font-size: 10px;
+            line-height: 9px;
+          }
         }
       `}
     >

@@ -17,6 +17,10 @@ export default function footer() {
         border: 3px solid #000000;
         border-radius: 9px;
         text-decoration: none;
+
+        :hover {
+          background-color: #f7f7f7;
+        }
       `}
       to={"/"}
     >

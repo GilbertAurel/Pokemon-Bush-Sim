@@ -10,6 +10,15 @@ export default function typeCard({ name, selectedType, typeButtonHandler }) {
         background-color: ${name === selectedType ? COLORS.secondary : "#fff"};
         border-radius: 20px;
         border: 1px solid #dadada;
+        cursor: pointer;
+
+        :hover {
+          border: 1px solid ${COLORS.secondary};
+        }
+
+        :active {
+          border: 1px solid ${COLORS.secondary};
+        }
 
         p {
           padding: 1px 0;

@@ -26,6 +26,16 @@ export default function movesSection({ moves }) {
           align-items: center;
           gap: 15px;
         }
+
+        @media (max-height: 800px) {
+          margin: 20px 0;
+
+          h1 {
+            font-family: "dogica";
+            font-size: 10px;
+            line-height: 9px;
+          }
+        }
       `}
     >
       <h2>Moves:</h2>

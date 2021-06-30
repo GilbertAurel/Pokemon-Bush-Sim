@@ -19,6 +19,10 @@ export default function myPokemonButton() {
         background-color: ${COLORS.gray};
         border-radius: 20px;
         border: 2px solid #000;
+
+        :hover {
+          background-color: #f7f7f7;
+        }
       `}
       to={"/collections"}
     >
