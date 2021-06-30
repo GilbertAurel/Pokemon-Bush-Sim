@@ -28,15 +28,22 @@ export default function pokemonList({ savedPokemon }) {
   return (
     <div
       css={css`
-        flex: 1;
         width: 90%;
+        margin-bottom: 80px;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: ${savedPokemon.length > 0 ? "baseline" : "center"};
+        align-items: ${savedPokemon.length === 0 && "center"};
         gap: 10px;
         flex-wrap: wrap;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        ::-webkit-scrollbar {
+          display: none;
+        }
 
         @media (min-width: 1080px) {
           padding: 20px 0 50px 0;

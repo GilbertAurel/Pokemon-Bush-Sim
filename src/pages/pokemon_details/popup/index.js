@@ -37,8 +37,8 @@ export default function popUpDialog({
 
     const newPokemon = {
       name,
-      pokemon: { pokemonName },
-      sprites: { sprites },
+      pokemon: pokemonName,
+      sprites: sprites,
       types: types,
     };
 

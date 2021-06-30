@@ -7,22 +7,28 @@ export const PokemonProvider = ({ children }) => {
     {
       name: "nick",
       pokemon: "real name",
-      sprites:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      sprites: {
+        front_default:
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      },
       types: [{ type: { name: "all" } }],
     },
     {
       name: "test",
       pokemon: "test",
-      sprites:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      sprites: {
+        front_default:
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      },
       types: [{ type: { name: "all" } }],
     },
     {
       name: "tttt",
       pokemon: "tttt",
-      sprites:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      sprites: {
+        front_default:
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      },
       types: [{ type: { name: "all" } }],
     },
   ]);

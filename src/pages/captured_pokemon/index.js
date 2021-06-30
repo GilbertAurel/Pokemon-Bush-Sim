@@ -15,6 +15,7 @@ import RenderFooter from "./footer";
 
 export default function myPokemonList() {
   const { savedPokemon, setSavedPokemon } = useContext(SavedPokemonContext);
+  const [captureDialog, setCaptureDialog] = useState(false);
   const [selectedType, setSelectedType] = useState("all");
   const [selectedPokemon, setSelectedPokemon] = useState(savedPokemon);
 
