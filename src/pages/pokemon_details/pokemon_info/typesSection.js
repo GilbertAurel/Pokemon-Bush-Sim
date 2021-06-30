@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 
-import PokemonType from "components/pokemonType";
+import PokemonType from "./typeCard";
 import { COLORS } from "constants/theme";
 
 export default function typesSection({ types, name }) {

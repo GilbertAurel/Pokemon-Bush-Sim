@@ -26,7 +26,7 @@ export default function myPokemonButton() {
         css={css`
           height: 25px;
           width: 25px;
-          object-fit: cover;
+          object-fit: contain;
         `}
         src={IMAGES.bag}
         alt="bag icon"

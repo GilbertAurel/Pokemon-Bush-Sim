@@ -1,11 +1,20 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 
-import PokemonListCard from "components/pokemonListCard";
+import PokemonListCard from "./pokemonListCard";
 import LoadingIndicator from "./loadingIndicator";
-import { scrollHandler } from "./handler";
 
 export default function list({ pokemons, data, setCurrentPage }) {
+  const scrollHandler = (event, data, setCurrentPage) => {
+    const atBottom =
+      event.target.scrollHeight - event.target.scrollTop ===
+      event.target.clientHeight;
+
+    if (atBottom) {
+      return setCurrentPage(data.pokemons.nextOffset);
+    }
+  };
+
   return (
     <div
       css={css`

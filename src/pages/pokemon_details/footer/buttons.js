@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import { Link } from "react-router-dom";
 
 import IMAGES from "constants/images";
 import { COLORS } from "constants/theme";
+import RenderBackButton from "components/backButton";
 
 export default function buttons({
   captureState,
@@ -65,29 +65,7 @@ export default function buttons({
           {!captureState ? "Capture" : `Try again ${failedAttempts}`}
         </h1>
       </button>
-      <Link
-        css={css`
-          height: 30px;
-          width: 179px;
-          background-color: ${COLORS.gray};
-          border: 3px solid #000000;
-          border-radius: 9px;
-          text-decoration: none;
-          text-align: center;
-        `}
-        to={"/"}
-      >
-        <h1
-          css={css`
-            font-family: "whitneybold";
-            font-size: 18px;
-            line-height: 10px;
-            color: #000;
-          `}
-        >
-          Go Back
-        </h1>
-      </Link>
+      <RenderBackButton />
     </div>
   );
 }

@@ -1,9 +1,21 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/react";
+import { css, jsx, keyframes } from "@emotion/react";
 
-import { COLORS } from "../constants/theme";
+import { COLORS } from "constants/theme";
 
-export default function pokemonListCardSkeleton({ type }) {
+export default function skeleton({ type }) {
+  const loading = keyframes`
+      0% {
+        transform: translateX(-150%);
+      }
+      50% {
+        transform: translateX(-60%);
+      }
+      100% {
+        transform: translateX(150%);
+      }
+  `;
+
   return (
     <div css={styles[type]}>
       <div
@@ -14,22 +26,17 @@ export default function pokemonListCardSkeleton({ type }) {
           top: 0;
           left: 0;
           right: 0;
-          animation: loading 1s infinite;
-
-          @keyframes loading {
-            0% {
-              transform: translateX(-150%);
-            }
-            50% {
-              transform: translateX(-60%);
-            }
-            100% {
-              transform: translateX(150%);
-            }
-          }
+          animation: ${loading} 1s infinite;
         `}
       >
-        <div css={styles.lightShimmer} />
+        <div
+          css={css`
+            height: 100%;
+            width: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: skewX(-20deg);
+          `}
+        />
       </div>
     </div>
   );
@@ -38,6 +45,7 @@ export default function pokemonListCardSkeleton({ type }) {
 const styles = {
   cardList: css`
     height: 30px;
+    min-height: 30px;
     width: 90%;
     position: relative;
     background-color: ${COLORS.gray};

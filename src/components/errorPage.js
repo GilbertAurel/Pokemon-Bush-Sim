@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 
-import IMAGES from "../constants/images";
+import IMAGES from "constants/images";
 
 export default function errorPage() {
   return (

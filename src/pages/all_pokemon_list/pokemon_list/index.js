@@ -7,7 +7,7 @@ import { GET_TEN_OFFSET_POKEMONS_QUERY } from "constants/queries";
 import ErrorPage from "components/errorPage";
 
 import PokemonListSkeleton from "./listSkeleton";
-import PokemonList from "./list";
+import PokemonList from "./pokemonList";
 
 const ITEM_PER_PAGE = 15;
 

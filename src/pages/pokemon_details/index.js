@@ -77,6 +77,8 @@ function pokemonDetail(props) {
         <PopupDialog
           dialogState={() => setCaptureDialog((prevState) => !prevState)}
           pokemonName={name}
+          sprites={sprites}
+          types={types}
         />
       )}
     </div>

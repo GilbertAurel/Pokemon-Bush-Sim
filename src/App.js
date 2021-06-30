@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PokemonList from "./pages/all_pokemon_list";
 import PokemonDetail from "./pages/pokemon_details";
 import MyPokemonList from "./pages/captured_pokemon";
-import { SavedPokemonProvider } from "./context/PokemonContext";
+import { PokemonProvider } from "./context/PokemonContext";
 
 const apolloClient = new ApolloClient({
   uri: "https://graphql-pokeapi.vercel.app/api/graphql",
@@ -17,7 +17,7 @@ function App() {
     <ApolloProvider client={apolloClient}>
       <Router>
         <Fragment>
-          <SavedPokemonProvider>
+          <PokemonProvider>
             <Switch>
               <Route exact path="/">
                 <PokemonList />
@@ -29,7 +29,7 @@ function App() {
                 <MyPokemonList />
               </Route>
             </Switch>
-          </SavedPokemonProvider>
+          </PokemonProvider>
         </Fragment>
       </Router>
     </ApolloProvider>

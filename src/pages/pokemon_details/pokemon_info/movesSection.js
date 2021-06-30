@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 
-import PokemonMove from "components/pokemonMove";
+import PokemonMove from "./moveCard";
 import { COLORS } from "constants/theme";
 
 export default function movesSection({ moves }) {

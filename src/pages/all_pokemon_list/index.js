@@ -17,7 +17,7 @@ export default function pokemonList() {
         height: 100vh;
         width: 100vw;
         min-height: 700px;
-        min-width: 400px;
+        min-width: 350px;
         display: flex;
         flex-direction: column;
         align-items: center;

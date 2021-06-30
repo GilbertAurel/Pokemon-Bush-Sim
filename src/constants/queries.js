@@ -33,3 +33,13 @@ export const GET_TEN_OFFSET_POKEMONS_QUERY = gql`
     }
   }
 `;
+
+export const GET_ALL_TYPES = gql`
+  query GetAllTypes {
+    types {
+      results {
+        name
+      }
+    }
+  }
+`;
